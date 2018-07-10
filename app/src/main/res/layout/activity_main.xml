@@ -11,39 +11,38 @@
         android:id="@+id/userName"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="25dp"
+        android:layout_above="@+id/password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-209dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="username" />
+        android:hint="Username"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/password"
         android:layout_width="323dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/userName"
-        android:layout_marginTop="104dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="209dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="password" />
+        android:hint="Password"
+        android:inputType="textPersonName" />
 
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="325dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_above="@+id/btnSignUp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="191dp"
         android:text="Log In" />
 
     <Button
         android:id="@+id/btnSignUp"
         android:layout_width="325dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btnLogin"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="135dp"
         android:text="Sign Up" />
 </RelativeLayout>
