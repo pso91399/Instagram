@@ -12,16 +12,18 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.patriciaouyang.instagram.model.Post;
 
+import java.lang.ref.WeakReference;
 import java.util.List;
 
 public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
 
     private List<Post> mPosts;
     Context context;
+    private final ClickListener listener;
 
-    public PostAdapter(List<Post> posts) {
+    public PostAdapter(List<Post> posts, ClickListener listener) {
         mPosts = posts;
-        //this.listener = listener;
+        this.listener = listener;
     }
     @NonNull
     @Override
@@ -30,7 +32,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
         LayoutInflater inflater = LayoutInflater.from(context);
 
         View postView = inflater.inflate(R.layout.item_post, parent, false);
-        ViewHolder viewHolder = new ViewHolder(postView);
+        ViewHolder viewHolder = new ViewHolder(postView, listener);
         return viewHolder;
     }
 
@@ -49,17 +51,28 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
     }
 
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public ImageView ivPostImage;
         public TextView tvCaption;
         public TextView tvUser;
+        private WeakReference<ClickListener> listenerRef;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView, ClickListener listener) {
             super(itemView);
+            listenerRef = new WeakReference<>(listener);
             ivPostImage = itemView.findViewById(R.id.ivPostImage);
             tvCaption = itemView.findViewById(R.id.tvCaption);
             tvUser = itemView.findViewById(R.id.tvUser);
+
+            itemView.setOnClickListener(this);
+        }
+
+
+        // onClick Listener for view
+        @Override
+        public void onClick(View v) {
+            listenerRef.get().onPositionClicked(getAdapterPosition());
         }
     }
 

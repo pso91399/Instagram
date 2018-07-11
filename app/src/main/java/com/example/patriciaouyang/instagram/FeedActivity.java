@@ -1,11 +1,13 @@
 package com.example.patriciaouyang.instagram;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.patriciaouyang.instagram.model.Post;
 import com.parse.FindCallback;
@@ -30,7 +32,23 @@ public class FeedActivity extends AppCompatActivity {
 
         rvPosts = findViewById(R.id.rvPosts);
         posts = new ArrayList<>();
-        postAdapter = new PostAdapter(posts);
+        postAdapter = new PostAdapter(posts, new ClickListener() {
+            @Override
+            public void onLongClicked(int position) {
+
+            }
+
+            @Override
+            public void onPositionClicked(int position) {
+                Post post = posts.get(position);
+                Intent i = new Intent(FeedActivity.this, PostDetailsActivity.class);
+                Toast.makeText(FeedActivity.this, "DetailsView launched", Toast.LENGTH_SHORT).show();
+                i.putExtra("caption", post.getDescription());
+                i.putExtra("imageUrl", post.getImage().getUrl());
+                i.putExtra("username", post.getUser().getUsername());
+                startActivity(i);
+            }
+        });
 
         rvPosts.setLayoutManager(new LinearLayoutManager(this));
         rvPosts.setAdapter(postAdapter);
