@@ -26,6 +26,7 @@ public class HomeActivity extends AppCompatActivity {
     private Button refreshButton;
     private Button logOutButton;
     private Button cameraButton;
+    private Button feedButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,7 @@ public class HomeActivity extends AppCompatActivity {
         refreshButton = findViewById(R.id.btnRefresh);
         logOutButton = findViewById(R.id.btnLogOut);
         cameraButton = findViewById(R.id.btnCamera);
+        feedButton = findViewById(R.id.btnFeed);
 
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,6 +87,15 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 loadTopPosts();
+            }
+        });
+
+        feedButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(HomeActivity.this, FeedActivity.class);
+                startActivity(i);
+                finish();
             }
         });
     }

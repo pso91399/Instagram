@@ -62,4 +62,12 @@
         android:layout_marginTop="48dp"
         app:srcCompat="@android:color/black" />
 
+    <Button
+        android:id="@+id/btnFeed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/etDescription"
+        android:layout_alignTop="@+id/btnLogOut"
+        android:text="Feed" />
+
 </RelativeLayout>
