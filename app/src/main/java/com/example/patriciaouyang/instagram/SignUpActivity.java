@@ -49,8 +49,8 @@ public class SignUpActivity extends AppCompatActivity {
         user.setUsername(username);
         user.setPassword(password);
         user.setEmail(email);
-        //user.setHandle(username);
-        //user.setfullName(fullname);
+        user.put("fullname", fullname);
+
         // Set custom properties
         //user.put("phone", "650-253-0000");
         // Invoke signUpInBackground

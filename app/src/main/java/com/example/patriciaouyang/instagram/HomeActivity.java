@@ -1,5 +1,6 @@
 package com.example.patriciaouyang.instagram;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -23,6 +24,8 @@ public class HomeActivity extends AppCompatActivity {
     private EditText descriptionInput;
     private Button createButton;
     private Button refreshButton;
+    private Button logOutButton;
+    private Button cameraButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,8 @@ public class HomeActivity extends AppCompatActivity {
         descriptionInput = findViewById(R.id.etDescription);
         createButton = findViewById(R.id.btnCreate);
         refreshButton = findViewById(R.id.btnRefresh);
+        logOutButton = findViewById(R.id.btnLogOut);
+        cameraButton = findViewById(R.id.btnCamera);
 
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,8 +45,8 @@ public class HomeActivity extends AppCompatActivity {
                 final String description = descriptionInput.getText().toString();
                 final ParseUser user = ParseUser.getCurrentUser();
 
-
                 final File file = new File(imagePath);
+
                 final ParseFile parseFile = new ParseFile(file);
 
                 parseFile.saveInBackground(new SaveCallback() {
@@ -56,13 +61,32 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        cameraButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(HomeActivity.this, PostActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
+
+        logOutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ParseUser.logOut();
+                ParseUser currentUser = ParseUser.getCurrentUser(); // this will now be null
+                Intent i = new Intent(HomeActivity.this, MainActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
+
         refreshButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 loadTopPosts();
             }
         });
-
     }
 
     private void createPost(String description, ParseFile imageFile, ParseUser user) {
@@ -103,5 +127,4 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
     }
-
 }

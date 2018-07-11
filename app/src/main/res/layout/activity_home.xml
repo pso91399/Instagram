@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ivPreview"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
@@ -11,28 +12,54 @@
         android:id="@+id/etDescription"
         android:layout_width="332dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="140dp"
+        android:layout_marginBottom="240dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="enter a description" />
+        android:hint="enter a description"
+        android:inputType="textPersonName" />
 
     <Button
         android:id="@+id/btnCreate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/btnRefresh"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="165dp"
         android:text="Create" />
 
     <Button
         android:id="@+id/btnRefresh"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btnCreate"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="-165dp"
+        android:layout_marginBottom="81dp"
         android:text="Refresh" />
+
+    <Button
+        android:id="@+id/btnLogOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:text="Log Out" />
+
+    <Button
+        android:id="@+id/btnCamera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnCreate"
+        android:layout_centerHorizontal="true"
+        android:text="Take Picture" />
+
+    <ImageView
+        android:id="@+id/ivPlaceholder"
+        android:layout_width="217dp"
+        android:layout_height="204dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp"
+        app:srcCompat="@android:color/black" />
+
 </RelativeLayout>
