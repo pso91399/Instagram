@@ -1,7 +1,6 @@
 package com.example.patriciaouyang.instagram;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -49,15 +48,6 @@ public class CameraFragment extends Fragment {
     public String photoFileName = "photo.jpg";
     File photoFile;
 
-    // Define the listener of the interface type
-    // listener will the activity instance containing fragment
-    private OnItemSelectedListener listener;
-
-    // Define the events that the fragment will use to communicate
-    public interface OnItemSelectedListener {
-        // This can be any number of events to be sent to the activity
-        public void onRssItemSelected(String link);
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
@@ -97,23 +87,6 @@ public class CameraFragment extends Fragment {
                 });
             }
         });
-    }
-
-    // Store the listener (activity) that will have events fired once the fragment is attached
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnItemSelectedListener) {
-            listener = (OnItemSelectedListener) context;
-        } else {
-            throw new ClassCastException(context.toString()
-                    + " must implement MyListFragment.OnItemSelectedListener");
-        }
-    }
-
-    // Now we can fire the event when the user selects something in the fragment
-    public void onSomeClick(View v) {
-        listener.onRssItemSelected("some link");
     }
 
     private void createPost(String description, ParseFile imageFile, ParseUser user) {

@@ -29,7 +29,7 @@ import com.parse.SaveCallback;
 import java.io.File;
 import java.util.List;
 
-public class HomeActivity extends AppCompatActivity implements CameraFragment.OnItemSelectedListener {
+public class HomeActivity extends AppCompatActivity implements TimelineFragment.Callback {
 
     private static final String imagePath = "/storage/emulated/0/DCIM/Camera/IMG_20180709_165010.jpg";
     private EditText descriptionInput;
@@ -49,6 +49,7 @@ public class HomeActivity extends AppCompatActivity implements CameraFragment.On
     public final static int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1034;
     public String photoFileName = "photo.jpg";
     File photoFile;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -191,13 +192,6 @@ public class HomeActivity extends AppCompatActivity implements CameraFragment.On
     }
 
 
-    @Override
-    public void onRssItemSelected(String link) {
-        //if (fragment2 != null && fragment2.isInLayout()) {
-        //    fragment2.setText(link);
-        //}
-    }
-
     // Returns the File for a photo stored on disk given the fileName
     public void onLaunchCamera() {
         // create Intent to take a picture and return control to the calling application
@@ -254,5 +248,10 @@ public class HomeActivity extends AppCompatActivity implements CameraFragment.On
                 Toast.makeText(this, "Picture wasn't taken!", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    @Override
+    public void onItemClicked(@NonNull int position) {
+
     }
 }
