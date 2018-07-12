@@ -36,8 +36,6 @@ public class PostDetailsActivity extends AppCompatActivity {
 
         Log.d("PostDetailsActivity", "Showing post details.");
 
-        String x = getIntent().getStringExtra("timestamp");
-
         tvTimestamp.setText(getIntent().getStringExtra("timestamp"));
         tvUserHandle.setText(getIntent().getStringExtra("username"));
         tvUserHandleBottom.setText(getIntent().getStringExtra("username"));
