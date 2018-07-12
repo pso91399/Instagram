@@ -6,11 +6,15 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
+import org.ocpsoft.prettytime.PrettyTime;
+
+import java.util.Date;
+
 @ParseClassName("Post")
 public class Post extends ParseObject {
-    String KEY_DESCRIPTION = "description";
-    String KEY_IMAGE = "image";
-    String KEY_USER= "user";
+    private static final String KEY_DESCRIPTION = "description";
+    private static final String KEY_IMAGE = "image";
+    private static final String KEY_USER= "user";
 
     public Post() {
 
@@ -26,6 +30,12 @@ public class Post extends ParseObject {
 
     public ParseFile getImage() {
         return getParseFile(KEY_IMAGE);
+    }
+
+    public String getRelativeTime() {
+        PrettyTime p = new PrettyTime();
+        Date d = getCreatedAt();
+        return p.format(d);
     }
 
     public void setImage(ParseFile image) {

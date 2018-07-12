@@ -46,6 +46,8 @@ public class FeedActivity extends AppCompatActivity {
                 i.putExtra("caption", post.getDescription());
                 i.putExtra("imageUrl", post.getImage().getUrl());
                 i.putExtra("username", post.getUser().getUsername());
+
+                i.putExtra("timestamp", post.getRelativeTime());
                 startActivity(i);
             }
         });

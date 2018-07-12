@@ -15,6 +15,7 @@ public class PostDetailsActivity extends AppCompatActivity {
     TextView tvUserHandleBottom;
     TextView tvCaption;
     ImageView ivImagePost;
+    TextView tvTimestamp;
     Post post;
 
     @Override
@@ -27,6 +28,7 @@ public class PostDetailsActivity extends AppCompatActivity {
         //post = (Post) getIntent().getStringExtra(Post.class.getSimpleName());
 
         ivImagePost = findViewById(R.id.ivImagePost);
+        tvTimestamp = findViewById(R.id.tvTimeStamp);
         tvUserHandle = findViewById(R.id.tvUserHandle);
         tvUserHandleBottom = findViewById(R.id.tvUserHandle2);
         tvCaption = findViewById(R.id.tvCaption);
@@ -34,6 +36,9 @@ public class PostDetailsActivity extends AppCompatActivity {
 
         Log.d("PostDetailsActivity", "Showing post details.");
 
+        String x = getIntent().getStringExtra("timestamp");
+
+        tvTimestamp.setText(getIntent().getStringExtra("timestamp"));
         tvUserHandle.setText(getIntent().getStringExtra("username"));
         tvUserHandleBottom.setText(getIntent().getStringExtra("username"));
         tvCaption.setText(getIntent().getStringExtra("caption"));
