@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient"
     tools:context=".MainActivity">
 
     <EditText
@@ -12,21 +13,22 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/password"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="-209dp"
         android:ems="10"
         android:hint="Username"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textColor="@color/purple_5"
+        android:textColorHint="@color/purple_5" />
 
     <EditText
         android:id="@+id/password"
         android:layout_width="323dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="209dp"
+        android:layout_centerInParent="true"
         android:ems="10"
         android:hint="Password"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textColor="@color/purple_5"
+        android:textColorHint="@color/purple_5" />
 
     <Button
         android:id="@+id/btnLogin"
@@ -34,7 +36,9 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/btnSignUp"
         android:layout_centerHorizontal="true"
-        android:text="Log In" />
+        android:background="@drawable/button_bg"
+        android:text="Log In"
+        android:textColor="@color/purple_5" />
 
     <Button
         android:id="@+id/btnSignUp"
@@ -42,6 +46,18 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="135dp"
-        android:text="Sign Up" />
+        android:layout_marginBottom="104dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_bg"
+        android:text="Sign Up"
+        android:textColor="@color/purple_5" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="101dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="51dp"
+        app:srcCompat="@drawable/ic_instagram_brand" />
 </RelativeLayout>

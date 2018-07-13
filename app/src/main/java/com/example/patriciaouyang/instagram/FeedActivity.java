@@ -102,12 +102,13 @@ public class FeedActivity extends AppCompatActivity {
                                 + objects.get(i).getDescription()
                                 + "\nusername = " + objects.get(i).getUser().getUsername()
                         );
-                        Post post = new Post();
-                        post.setDescription(objects.get(i).getDescription());
-                        post.setUser(objects.get(i).getUser());
-                        post.setImage(objects.get(i).getImage());
-                        posts.add(post);
-                        postAdapter.notifyItemInserted(posts.size() - 1);
+                        //Post post = new Post();
+                        //post.setDescription(objects.get(i).getDescription());
+                        //post.setUser(objects.get(i).getUser());
+                        //post.setImage(objects.get(i).getImage());
+                        //posts.addAll(objects);
+                        //postAdapter.notifyDataSetChanged();
+                        //postAdapter.notifyItemInserted(posts.size() - 1);
                     }
                     postAdapter.addAll(posts);
                 } else {
