@@ -40,7 +40,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Post post = mPosts.get(position);
         holder.tvUser.setText(post.getUser().getUsername());
-        holder.tvCaption.setText(post.getDescription());
+        holder.tvCaption.setText(post.getUser().getUsername());
+        holder.tvRealCaption.setText(post.getDescription());
 
         Glide.with(context).load(post.getImage().getUrl()).into(holder.ivPostImage);
     }
@@ -56,12 +57,14 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         public ImageView ivPostImage;
         public TextView tvCaption;
         public TextView tvUser;
+        public TextView tvRealCaption;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             ivPostImage = itemView.findViewById(R.id.ivPostImage);
             tvCaption = itemView.findViewById(R.id.tvCaption);
             tvUser = itemView.findViewById(R.id.tvUser);
+            tvRealCaption = itemView.findViewById(R.id.tvRealCaption);
 
             itemView.setOnClickListener(this);
         }
